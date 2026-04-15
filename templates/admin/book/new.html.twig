@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajouter un livre{% endblock %}
+
+{% block body %}
+<nav aria-label="breadcrumb" class="mb-4">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{{ path('admin_dashboard') }}">Admin</a></li>
+        <li class="breadcrumb-item"><a href="{{ path('admin_books_list') }}">Livres</a></li>
+        <li class="breadcrumb-item active">Ajouter</li>
+    </ol>
+</nav>
+
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card border-0 shadow-sm">
+            <div class="card-header bg-transparent border-0 pt-4 pb-0">
+                <h2 class="fw-bold"><i class="bi bi-plus-circle me-2 text-primary"></i>Ajouter un livre</h2>
+            </div>
+            <div class="card-body p-4">
+                {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+                {{ form_row(form.titre) }}
+                {{ form_row(form.auteur) }}
+                {{ form_row(form.resume) }}
+                {{ form_row(form.datePublication) }}
+                {{ form_row(form.disponible) }}
+                {{ form_row(form.category) }}
+                <div class="d-flex gap-2 mt-4">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="bi bi-save me-1"></i>Enregistrer
+                    </button>
+                    <a href="{{ path('admin_books_list') }}" class="btn btn-outline-secondary">
+                        <i class="bi bi-arrow-left me-1"></i>Annuler
+                    </a>
+                </div>
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
